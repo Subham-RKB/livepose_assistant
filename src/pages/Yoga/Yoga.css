@@ -1,0 +1,82 @@
+.yoga-container {
+    background: #333333;
+    color: #dddddd;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+.secondary-btn1 {
+    position: absolute;
+    left: 120px;
+    top: calc(100vh - 100px);
+    border-radius: 5px;
+    padding: 1em 2em;
+    background-color: #2a9c2a;
+    box-shadow: 0px 0px 0px 0px;
+    color: white;
+}
+.secondary-btn2 {
+    position: absolute;
+    left: 60%;
+    top: calc(100vh - 100px);
+    border-radius: 5px;
+    padding: 1em 2em;
+    width:400px;
+    background-color: #2a9c2a;
+    box-shadow: 0px 0px 0px 0px;
+    color: white;
+}
+
+.secondary-btn1:hover {
+    background-color: #308330;
+}
+.secondary-btn2:hover {
+    background-color: #308330;
+}
+
+.starting-contdown {
+    margin: auto;
+    border: 10px solid rgba(125, 125, 125, 0.5);
+    width: max-content;
+    padding: 10px 30px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0);
+    position: relative;
+    top: 45%;
+}
+.starting-contdown h1 {
+    color: white;
+}
+.pose-img {
+    position: absolute;
+    right: 5%;
+    top: 160px;
+    width: 400px;
+    aspect-ratio: 1;
+}
+
+.performance-container {
+    display: flex;
+    padding: 20px;
+    position: absolute;
+    left: 100px;
+}
+
+
+.pose-performance {
+    color: white;
+    margin-right: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #444444;
+    border-radius: 5px;
+    padding: 0.8em 1.5em;
+}
+
+
+#webcam {
+    transform: rotateY(180deg);
+}
+
+#my-canvas {
+    transform: rotateY(180deg);
+}

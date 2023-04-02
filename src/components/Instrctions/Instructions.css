@@ -1,0 +1,27 @@
+.instructions-list {
+    width: 40%;
+    border-radius: 8px;
+    background-color: #444444;
+    padding: 2em;
+    margin-top: 50px;
+}
+.instruction {
+    margin: 10px;
+    letter-spacing: 0.5px;
+    color: white;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.instructions-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.pose-demo-img {
+    margin-top:95px;
+    height: 400px;
+    aspect-ratio: 1;
+    border-radius: 15px;
+}

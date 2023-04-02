@@ -1,0 +1,1367 @@
+{
+    "format": "layers-model",
+    "generatedBy": "keras v2.11.0",
+    "convertedBy": "TensorFlow.js Converter v4.3.0",
+    "modelTopology": {
+        "keras_version": "2.11.0",
+        "backend": "tensorflow",
+        "model_config": {
+            "class_name": "Functional",
+            "config": {
+                "name": "model_4",
+                "layers": [
+                    {
+                        "class_name": "InputLayer",
+                        "config": {
+                            "batch_input_shape": [
+                                null,
+                                51
+                            ],
+                            "dtype": "float32",
+                            "sparse": false,
+                            "ragged": false,
+                            "name": "input_8"
+                        },
+                        "name": "input_8",
+                        "inbound_nodes": []
+                    },
+                    {
+                        "class_name": "Reshape",
+                        "config": {
+                            "name": "reshape_4",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "target_shape": [
+                                17,
+                                3
+                            ]
+                        },
+                        "name": "reshape_4",
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "input_8",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "YourCustomLayer",
+                        "config": {
+                            "name": "tf.__operators__.getitem_4",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "__operators__.getitem"
+                        },
+                        "name": "tf.__operators__.getitem_4",
+                        "inbound_nodes": [
+                            [
+                                "reshape_4",
+                                0,
+                                0,
+                                {
+                                    "slice_spec": [
+                                        {
+                                            "start": null,
+                                            "stop": null,
+                                            "step": null
+                                        },
+                                        {
+                                            "start": null,
+                                            "stop": null,
+                                            "step": null
+                                        },
+                                        {
+                                            "start": null,
+                                            "stop": 2,
+                                            "step": null
+                                        }
+                                    ]
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.compat.v1.gather_36",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "compat.v1.gather"
+                        },
+                        "name": "tf.compat.v1.gather_36",
+                        "inbound_nodes": [
+                            [
+                                "tf.__operators__.getitem_4",
+                                0,
+                                0,
+                                {
+                                    "indices": 11,
+                                    "validate_indices": null,
+                                    "name": null,
+                                    "axis": 1,
+                                    "batch_dims": 0
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.compat.v1.gather_37",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "compat.v1.gather"
+                        },
+                        "name": "tf.compat.v1.gather_37",
+                        "inbound_nodes": [
+                            [
+                                "tf.__operators__.getitem_4",
+                                0,
+                                0,
+                                {
+                                    "indices": 12,
+                                    "validate_indices": null,
+                                    "name": null,
+                                    "axis": 1,
+                                    "batch_dims": 0
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.math.multiply_36",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "math.multiply"
+                        },
+                        "name": "tf.math.multiply_36",
+                        "inbound_nodes": [
+                            [
+                                "tf.compat.v1.gather_36",
+                                0,
+                                0,
+                                {
+                                    "y": 0.5,
+                                    "name": null
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.math.multiply_37",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "math.multiply"
+                        },
+                        "name": "tf.math.multiply_37",
+                        "inbound_nodes": [
+                            [
+                                "tf.compat.v1.gather_37",
+                                0,
+                                0,
+                                {
+                                    "y": 0.5,
+                                    "name": null
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.__operators__.add_16",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "__operators__.add"
+                        },
+                        "name": "tf.__operators__.add_16",
+                        "inbound_nodes": [
+                            [
+                                "tf.math.multiply_36",
+                                0,
+                                0,
+                                {
+                                    "y": [
+                                        "tf.math.multiply_37",
+                                        0,
+                                        0
+                                    ],
+                                    "name": null
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.compat.v1.size_8",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "compat.v1.size"
+                        },
+                        "name": "tf.compat.v1.size_8",
+                        "inbound_nodes": [
+                            [
+                                "tf.__operators__.getitem_4",
+                                0,
+                                0,
+                                {
+                                    "name": null,
+                                    "out_type": "int32"
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.expand_dims_8",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "expand_dims"
+                        },
+                        "name": "tf.expand_dims_8",
+                        "inbound_nodes": [
+                            [
+                                "tf.__operators__.add_16",
+                                0,
+                                0,
+                                {
+                                    "axis": 1
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.compat.v1.floor_div_8",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "compat.v1.floor_div"
+                        },
+                        "name": "tf.compat.v1.floor_div_8",
+                        "inbound_nodes": [
+                            [
+                                "tf.compat.v1.size_8",
+                                0,
+                                0,
+                                {
+                                    "y": 34,
+                                    "name": null
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.broadcast_to_8",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "broadcast_to"
+                        },
+                        "name": "tf.broadcast_to_8",
+                        "inbound_nodes": [
+                            [
+                                "tf.expand_dims_8",
+                                0,
+                                0,
+                                {
+                                    "shape": [
+                                        [
+                                            "tf.compat.v1.floor_div_8",
+                                            0,
+                                            0
+                                        ],
+                                        17,
+                                        2
+                                    ],
+                                    "name": null
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.math.subtract_12",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "math.subtract"
+                        },
+                        "name": "tf.math.subtract_12",
+                        "inbound_nodes": [
+                            [
+                                "tf.__operators__.getitem_4",
+                                0,
+                                0,
+                                {
+                                    "y": [
+                                        "tf.broadcast_to_8",
+                                        0,
+                                        0
+                                    ],
+                                    "name": null
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.compat.v1.gather_42",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "compat.v1.gather"
+                        },
+                        "name": "tf.compat.v1.gather_42",
+                        "inbound_nodes": [
+                            [
+                                "tf.math.subtract_12",
+                                0,
+                                0,
+                                {
+                                    "indices": 11,
+                                    "validate_indices": null,
+                                    "name": null,
+                                    "axis": 1,
+                                    "batch_dims": 0
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.compat.v1.gather_43",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "compat.v1.gather"
+                        },
+                        "name": "tf.compat.v1.gather_43",
+                        "inbound_nodes": [
+                            [
+                                "tf.math.subtract_12",
+                                0,
+                                0,
+                                {
+                                    "indices": 12,
+                                    "validate_indices": null,
+                                    "name": null,
+                                    "axis": 1,
+                                    "batch_dims": 0
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.math.multiply_42",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "math.multiply"
+                        },
+                        "name": "tf.math.multiply_42",
+                        "inbound_nodes": [
+                            [
+                                "tf.compat.v1.gather_42",
+                                0,
+                                0,
+                                {
+                                    "y": 0.5,
+                                    "name": null
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.math.multiply_43",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "math.multiply"
+                        },
+                        "name": "tf.math.multiply_43",
+                        "inbound_nodes": [
+                            [
+                                "tf.compat.v1.gather_43",
+                                0,
+                                0,
+                                {
+                                    "y": 0.5,
+                                    "name": null
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.__operators__.add_19",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "__operators__.add"
+                        },
+                        "name": "tf.__operators__.add_19",
+                        "inbound_nodes": [
+                            [
+                                "tf.math.multiply_42",
+                                0,
+                                0,
+                                {
+                                    "y": [
+                                        "tf.math.multiply_43",
+                                        0,
+                                        0
+                                    ],
+                                    "name": null
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.compat.v1.size_9",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "compat.v1.size"
+                        },
+                        "name": "tf.compat.v1.size_9",
+                        "inbound_nodes": [
+                            [
+                                "tf.math.subtract_12",
+                                0,
+                                0,
+                                {
+                                    "name": null,
+                                    "out_type": "int32"
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.compat.v1.gather_40",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "compat.v1.gather"
+                        },
+                        "name": "tf.compat.v1.gather_40",
+                        "inbound_nodes": [
+                            [
+                                "tf.math.subtract_12",
+                                0,
+                                0,
+                                {
+                                    "indices": 5,
+                                    "validate_indices": null,
+                                    "name": null,
+                                    "axis": 1,
+                                    "batch_dims": 0
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.compat.v1.gather_41",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "compat.v1.gather"
+                        },
+                        "name": "tf.compat.v1.gather_41",
+                        "inbound_nodes": [
+                            [
+                                "tf.math.subtract_12",
+                                0,
+                                0,
+                                {
+                                    "indices": 6,
+                                    "validate_indices": null,
+                                    "name": null,
+                                    "axis": 1,
+                                    "batch_dims": 0
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.compat.v1.gather_38",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "compat.v1.gather"
+                        },
+                        "name": "tf.compat.v1.gather_38",
+                        "inbound_nodes": [
+                            [
+                                "tf.math.subtract_12",
+                                0,
+                                0,
+                                {
+                                    "indices": 11,
+                                    "validate_indices": null,
+                                    "name": null,
+                                    "axis": 1,
+                                    "batch_dims": 0
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.compat.v1.gather_39",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "compat.v1.gather"
+                        },
+                        "name": "tf.compat.v1.gather_39",
+                        "inbound_nodes": [
+                            [
+                                "tf.math.subtract_12",
+                                0,
+                                0,
+                                {
+                                    "indices": 12,
+                                    "validate_indices": null,
+                                    "name": null,
+                                    "axis": 1,
+                                    "batch_dims": 0
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.expand_dims_9",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "expand_dims"
+                        },
+                        "name": "tf.expand_dims_9",
+                        "inbound_nodes": [
+                            [
+                                "tf.__operators__.add_19",
+                                0,
+                                0,
+                                {
+                                    "axis": 1
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.compat.v1.floor_div_9",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "compat.v1.floor_div"
+                        },
+                        "name": "tf.compat.v1.floor_div_9",
+                        "inbound_nodes": [
+                            [
+                                "tf.compat.v1.size_9",
+                                0,
+                                0,
+                                {
+                                    "y": 34,
+                                    "name": null
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.math.multiply_40",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "math.multiply"
+                        },
+                        "name": "tf.math.multiply_40",
+                        "inbound_nodes": [
+                            [
+                                "tf.compat.v1.gather_40",
+                                0,
+                                0,
+                                {
+                                    "y": 0.5,
+                                    "name": null
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.math.multiply_41",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "math.multiply"
+                        },
+                        "name": "tf.math.multiply_41",
+                        "inbound_nodes": [
+                            [
+                                "tf.compat.v1.gather_41",
+                                0,
+                                0,
+                                {
+                                    "y": 0.5,
+                                    "name": null
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.math.multiply_38",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "math.multiply"
+                        },
+                        "name": "tf.math.multiply_38",
+                        "inbound_nodes": [
+                            [
+                                "tf.compat.v1.gather_38",
+                                0,
+                                0,
+                                {
+                                    "y": 0.5,
+                                    "name": null
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.math.multiply_39",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "math.multiply"
+                        },
+                        "name": "tf.math.multiply_39",
+                        "inbound_nodes": [
+                            [
+                                "tf.compat.v1.gather_39",
+                                0,
+                                0,
+                                {
+                                    "y": 0.5,
+                                    "name": null
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.broadcast_to_9",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "broadcast_to"
+                        },
+                        "name": "tf.broadcast_to_9",
+                        "inbound_nodes": [
+                            [
+                                "tf.expand_dims_9",
+                                0,
+                                0,
+                                {
+                                    "shape": [
+                                        [
+                                            "tf.compat.v1.floor_div_9",
+                                            0,
+                                            0
+                                        ],
+                                        17,
+                                        2
+                                    ],
+                                    "name": null
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.__operators__.add_18",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "__operators__.add"
+                        },
+                        "name": "tf.__operators__.add_18",
+                        "inbound_nodes": [
+                            [
+                                "tf.math.multiply_40",
+                                0,
+                                0,
+                                {
+                                    "y": [
+                                        "tf.math.multiply_41",
+                                        0,
+                                        0
+                                    ],
+                                    "name": null
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.__operators__.add_17",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "__operators__.add"
+                        },
+                        "name": "tf.__operators__.add_17",
+                        "inbound_nodes": [
+                            [
+                                "tf.math.multiply_38",
+                                0,
+                                0,
+                                {
+                                    "y": [
+                                        "tf.math.multiply_39",
+                                        0,
+                                        0
+                                    ],
+                                    "name": null
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.math.subtract_14",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "math.subtract"
+                        },
+                        "name": "tf.math.subtract_14",
+                        "inbound_nodes": [
+                            [
+                                "tf.math.subtract_12",
+                                0,
+                                0,
+                                {
+                                    "y": [
+                                        "tf.broadcast_to_9",
+                                        0,
+                                        0
+                                    ],
+                                    "name": null
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.math.subtract_13",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "math.subtract"
+                        },
+                        "name": "tf.math.subtract_13",
+                        "inbound_nodes": [
+                            [
+                                "tf.__operators__.add_18",
+                                0,
+                                0,
+                                {
+                                    "y": [
+                                        "tf.__operators__.add_17",
+                                        0,
+                                        0
+                                    ],
+                                    "name": null
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.compat.v1.gather_44",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "compat.v1.gather"
+                        },
+                        "name": "tf.compat.v1.gather_44",
+                        "inbound_nodes": [
+                            [
+                                "tf.math.subtract_14",
+                                0,
+                                0,
+                                {
+                                    "indices": 0,
+                                    "validate_indices": null,
+                                    "name": "dist_to_pose_center",
+                                    "axis": 0,
+                                    "batch_dims": 0
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.compat.v1.norm_8",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "compat.v1.norm"
+                        },
+                        "name": "tf.compat.v1.norm_8",
+                        "inbound_nodes": [
+                            [
+                                "tf.math.subtract_13",
+                                0,
+                                0,
+                                {
+                                    "ord": "euclidean",
+                                    "axis": null,
+                                    "keepdims": null,
+                                    "name": null
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.compat.v1.norm_9",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "compat.v1.norm"
+                        },
+                        "name": "tf.compat.v1.norm_9",
+                        "inbound_nodes": [
+                            [
+                                "tf.compat.v1.gather_44",
+                                0,
+                                0,
+                                {
+                                    "ord": "euclidean",
+                                    "axis": 0,
+                                    "keepdims": null,
+                                    "name": null
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.math.multiply_44",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "math.multiply"
+                        },
+                        "name": "tf.math.multiply_44",
+                        "inbound_nodes": [
+                            [
+                                "tf.compat.v1.norm_8",
+                                0,
+                                0,
+                                {
+                                    "y": 2.5,
+                                    "name": null
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.math.reduce_max_4",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "math.reduce_max"
+                        },
+                        "name": "tf.math.reduce_max_4",
+                        "inbound_nodes": [
+                            [
+                                "tf.compat.v1.norm_9",
+                                0,
+                                0,
+                                {}
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.math.maximum_4",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "math.maximum"
+                        },
+                        "name": "tf.math.maximum_4",
+                        "inbound_nodes": [
+                            [
+                                "tf.math.multiply_44",
+                                0,
+                                0,
+                                {
+                                    "y": [
+                                        "tf.math.reduce_max_4",
+                                        0,
+                                        0
+                                    ],
+                                    "name": null
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "TFOpLambda",
+                        "config": {
+                            "name": "tf.math.truediv_4",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "function": "math.truediv"
+                        },
+                        "name": "tf.math.truediv_4",
+                        "inbound_nodes": [
+                            [
+                                "tf.math.subtract_12",
+                                0,
+                                0,
+                                {
+                                    "y": [
+                                        "tf.math.maximum_4",
+                                        0,
+                                        0
+                                    ],
+                                    "name": null
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "InputLayer",
+                        "config": {
+                            "batch_input_shape": [
+                                null,
+                                11
+                            ],
+                            "dtype": "float32",
+                            "sparse": false,
+                            "ragged": false,
+                            "name": "input_9"
+                        },
+                        "name": "input_9",
+                        "inbound_nodes": []
+                    },
+                    {
+                        "class_name": "Flatten",
+                        "config": {
+                            "name": "flatten_4",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "data_format": "channels_last"
+                        },
+                        "name": "flatten_4",
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "tf.math.truediv_4",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "BatchNormalization",
+                        "config": {
+                            "name": "batch_normalization_3",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "axis": [
+                                1
+                            ],
+                            "momentum": 0.99,
+                            "epsilon": 0.001,
+                            "center": true,
+                            "scale": true,
+                            "beta_initializer": {
+                                "class_name": "Zeros",
+                                "config": {}
+                            },
+                            "gamma_initializer": {
+                                "class_name": "Ones",
+                                "config": {}
+                            },
+                            "moving_mean_initializer": {
+                                "class_name": "Zeros",
+                                "config": {}
+                            },
+                            "moving_variance_initializer": {
+                                "class_name": "Ones",
+                                "config": {}
+                            },
+                            "beta_regularizer": null,
+                            "gamma_regularizer": null,
+                            "beta_constraint": null,
+                            "gamma_constraint": null
+                        },
+                        "name": "batch_normalization_3",
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "input_9",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "Concatenate",
+                        "config": {
+                            "name": "concatenate_3",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "axis": -1
+                        },
+                        "name": "concatenate_3",
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "flatten_4",
+                                    0,
+                                    0,
+                                    {}
+                                ],
+                                [
+                                    "batch_normalization_3",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "Dense",
+                        "config": {
+                            "name": "dense_12",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "units": 512,
+                            "activation": "relu6",
+                            "use_bias": true,
+                            "kernel_initializer": {
+                                "class_name": "GlorotUniform",
+                                "config": {
+                                    "seed": null
+                                }
+                            },
+                            "bias_initializer": {
+                                "class_name": "Zeros",
+                                "config": {}
+                            },
+                            "kernel_regularizer": null,
+                            "bias_regularizer": null,
+                            "activity_regularizer": null,
+                            "kernel_constraint": null,
+                            "bias_constraint": null
+                        },
+                        "name": "dense_12",
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "concatenate_3",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "Dropout",
+                        "config": {
+                            "name": "dropout_8",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "rate": 0.5,
+                            "noise_shape": null,
+                            "seed": null
+                        },
+                        "name": "dropout_8",
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "dense_12",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "Dense",
+                        "config": {
+                            "name": "dense_13",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "units": 256,
+                            "activation": "relu6",
+                            "use_bias": true,
+                            "kernel_initializer": {
+                                "class_name": "GlorotUniform",
+                                "config": {
+                                    "seed": null
+                                }
+                            },
+                            "bias_initializer": {
+                                "class_name": "Zeros",
+                                "config": {}
+                            },
+                            "kernel_regularizer": null,
+                            "bias_regularizer": null,
+                            "activity_regularizer": null,
+                            "kernel_constraint": null,
+                            "bias_constraint": null
+                        },
+                        "name": "dense_13",
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "dropout_8",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "Dropout",
+                        "config": {
+                            "name": "dropout_9",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "rate": 0.5,
+                            "noise_shape": null,
+                            "seed": null
+                        },
+                        "name": "dropout_9",
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "dense_13",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ]
+                    },
+                    {
+                        "class_name": "Dense",
+                        "config": {
+                            "name": "dense_14",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "units": 7,
+                            "activation": "softmax",
+                            "use_bias": true,
+                            "kernel_initializer": {
+                                "class_name": "GlorotUniform",
+                                "config": {
+                                    "seed": null
+                                }
+                            },
+                            "bias_initializer": {
+                                "class_name": "Zeros",
+                                "config": {}
+                            },
+                            "kernel_regularizer": null,
+                            "bias_regularizer": null,
+                            "activity_regularizer": null,
+                            "kernel_constraint": null,
+                            "bias_constraint": null
+                        },
+                        "name": "dense_14",
+                        "inbound_nodes": [
+                            [
+                                [
+                                    "dropout_9",
+                                    0,
+                                    0,
+                                    {}
+                                ]
+                            ]
+                        ]
+                    }
+                ],
+                "input_layers": [
+                    [
+                        "input_8",
+                        0,
+                        0
+                    ],
+                    [
+                        "input_9",
+                        0,
+                        0
+                    ]
+                ],
+                "output_layers": [
+                    [
+                        "dense_14",
+                        0,
+                        0
+                    ]
+                ]
+            }
+        },
+        "training_config": {
+            "loss": "categorical_crossentropy",
+            "metrics": [
+                [
+                    {
+                        "class_name": "MeanMetricWrapper",
+                        "config": {
+                            "name": "accuracy",
+                            "dtype": "float32",
+                            "fn": "categorical_accuracy"
+                        }
+                    }
+                ]
+            ],
+            "weighted_metrics": null,
+            "loss_weights": null,
+            "optimizer_config": {
+                "class_name": "Custom>Adam",
+                "config": {
+                    "name": "Adam",
+                    "weight_decay": null,
+                    "clipnorm": null,
+                    "global_clipnorm": null,
+                    "clipvalue": null,
+                    "use_ema": false,
+                    "ema_momentum": 0.99,
+                    "ema_overwrite_frequency": null,
+                    "jit_compile": false,
+                    "is_legacy_optimizer": false,
+                    "learning_rate": 0.0010000000474974513,
+                    "beta_1": 0.9,
+                    "beta_2": 0.999,
+                    "epsilon": 1e-07,
+                    "amsgrad": false
+                }
+            }
+        }
+    },
+    "weightsManifest": [
+        {
+            "paths": [
+                "group1-shard1of1.bin"
+            ],
+            "weights": [
+                {
+                    "name": "batch_normalization_3/gamma",
+                    "shape": [
+                        11
+                    ],
+                    "dtype": "float32"
+                },
+                {
+                    "name": "batch_normalization_3/beta",
+                    "shape": [
+                        11
+                    ],
+                    "dtype": "float32"
+                },
+                {
+                    "name": "batch_normalization_3/moving_mean",
+                    "shape": [
+                        11
+                    ],
+                    "dtype": "float32"
+                },
+                {
+                    "name": "batch_normalization_3/moving_variance",
+                    "shape": [
+                        11
+                    ],
+                    "dtype": "float32"
+                },
+                {
+                    "name": "dense_12/kernel",
+                    "shape": [
+                        45,
+                        512
+                    ],
+                    "dtype": "float32"
+                },
+                {
+                    "name": "dense_12/bias",
+                    "shape": [
+                        512
+                    ],
+                    "dtype": "float32"
+                },
+                {
+                    "name": "dense_13/kernel",
+                    "shape": [
+                        512,
+                        256
+                    ],
+                    "dtype": "float32"
+                },
+                {
+                    "name": "dense_13/bias",
+                    "shape": [
+                        256
+                    ],
+                    "dtype": "float32"
+                },
+                {
+                    "name": "dense_14/kernel",
+                    "shape": [
+                        256,
+                        7
+                    ],
+                    "dtype": "float32"
+                },
+                {
+                    "name": "dense_14/bias",
+                    "shape": [
+                        7
+                    ],
+                    "dtype": "float32"
+                }
+            ]
+        }
+    ]
+}
