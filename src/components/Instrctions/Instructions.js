@@ -23,6 +23,7 @@ export default function Instructions({ currentPose }) {
             <img 
                 className="pose-demo-img"
                 src={poseImages[currentPose]}
+                alt=""
             />
         </div>
     )

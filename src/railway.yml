@@ -1,0 +1,8 @@
+build:
+  steps:
+    - name: Install dependencies
+      command: npm ci
+    - name: Build project
+      command: npm run build
+      environment:
+        CI: "false"
