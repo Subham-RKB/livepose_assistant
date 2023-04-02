@@ -5,4 +5,5 @@ build:
     - name: Build project
       command: npm run build
       environment:
-        CI: "false"
+        CI: "false",
+        NODE_OPTIONS: "--max-old-space-size=4096"
